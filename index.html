@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anu Tripathi — Computational Biomechanics Researcher</title>
+<meta name="description" content="Portfolio of Anu Tripathi, Ph.D. — computational biomechanics researcher building finite element and digital-twin models to predict and prevent injury.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#10181f;
+    --ink-soft:#4b5560;
+    --paper:#ffffff;
+    --paper-alt:#f5f6f3;
+    --line:#e2e4de;
+    --navy:#16324f;
+    --navy-deep:#0d1f33;
+    --c1:#1f3d99;
+    --c2:#1a8fb4;
+    --c3:#2ea36c;
+    --c4:#d9c220;
+    --c5:#e8792a;
+    --c6:#c0392b;
+    --grad: linear-gradient(90deg, var(--c1) 0%, var(--c2) 20%, var(--c3) 40%, var(--c4) 60%, var(--c5) 80%, var(--c6) 100%);
+    --maxw: 1120px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'Inter', sans-serif;
+    color:var(--ink);
+    background:var(--paper);
+    -webkit-font-smoothing:antialiased;
+    font-size:16px;
+    line-height:1.65;
+  }
+  h1,h2,h3{
+    font-family:'Newsreader', serif;
+    font-weight:500;
+    margin:0;
+    color:var(--ink);
+  }
+  a{color:inherit;}
+  .eyebrow a, .t-org a{text-decoration:none; border-bottom:1px solid var(--line);}
+  .eyebrow a:hover, .t-org a:hover{color:var(--navy-deep); border-bottom-color:currentColor;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 32px;}
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--navy);
+    font-weight:500;
+  }
+  .grad-rule{
+    height:5px;
+    width:100%;
+    background:var(--grad);
+    border-radius:3px;
+  }
+
+  /* NAV */
+  header.nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(255,255,255,0.98);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:var(--maxw); margin:0 auto; padding:16px 32px;
+    display:flex; align-items:center; justify-content:space-between; gap:24px;
+  }
+  .brand{
+    font-family:'IBM Plex Mono', monospace;
+    font-weight:500; font-size:0.85rem; letter-spacing:0.08em;
+    white-space:nowrap;
+  }
+  nav.links{display:flex; gap:28px; align-items:center; flex:1; justify-content:center;}
+  .nav-right{display:flex; align-items:center; gap:14px;}
+  .mobile-cv{display:none;}
+  nav.links a{
+    font-size:0.86rem; text-decoration:none; color:var(--ink-soft);
+    transition:color .15s ease;
+  }
+  nav.links a:hover{color:var(--navy);}
+  .btn{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.76rem; letter-spacing:0.04em;
+    text-decoration:none;
+    padding:9px 16px;
+    border-radius:3px;
+    border:1px solid var(--navy);
+    color:var(--navy);
+    white-space:nowrap;
+    transition:background .15s ease, color .15s ease;
+  }
+  .btn:hover{background:var(--navy); color:#fff;}
+  .btn.solid{background:var(--navy); color:#fff;}
+  .btn.solid:hover{background:var(--navy-deep);}
+  .menu-toggle{display:none; background:none; border:0; cursor:pointer; padding:4px;}
+  .menu-toggle span{display:block; width:22px; height:2px; background:var(--ink); margin:5px 0;}
+
+  /* HERO */
+  .hero{padding:56px 0 24px;}
+  #about{padding:28px 0 32px;}
+  #projects{padding-top:40px;}
+  #projects .section-head, #teaching .section-head{margin-bottom:16px;}
+  .profile{display:flex; align-items:center; gap:22px;}
+  .headshot{width:112px; height:112px; border-radius:50%; object-fit:cover; flex-shrink:0; border:1px solid var(--line);}
+  .profile-name{font-family:'Newsreader', serif; font-size:clamp(1.35rem, 2.59vw, 2.25rem); line-height:1.1; letter-spacing:-0.01em; color:var(--ink); margin:0 0 8px;}
+  .profile .eyebrow{line-height:1.7;}
+  .hero .bio{margin-top:28px;}
+  .hero .bio p{font-size:1.04rem; color:#2b333b; margin:0 0 14px;}
+  .hero .bio p:last-child{margin-bottom:0;}
+
+  /* SECTION shell */
+  section{padding:48px 0;}
+  section.alt{background:var(--paper-alt);}
+  .section-head{margin-bottom:24px;}
+  .section-head h2{font-size:1.9rem; margin-top:10px;}
+  .section-head .sub{color:var(--ink-soft); margin-top:10px; max-width:640px;}
+
+  /* ABOUT */
+  .tags{display:flex; flex-wrap:wrap; gap:9px; margin-top:6px;}
+  .tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    padding:7px 12px;
+    border:1px solid var(--line);
+    border-radius:20px;
+    color:var(--ink-soft);
+    background:#fff;
+  }
+
+  /* PROJECTS */
+  .project{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:44px;
+    align-items:start;
+    padding:30px 0;
+    border-top:1px solid var(--line);
+  }
+  .project:first-of-type{border-top:none; padding-top:0;}
+  .project.reverse .p-media{order:2;}
+  .project.reverse .p-text{order:1;}
+  .media-pair{display:flex; gap:12px; align-items:center;}
+  .media-pair > img, .media-pair > .gif-crop{flex:1 1 0; min-width:0;}
+  .gif-crop{overflow:hidden; width:auto; margin:0; border-radius:6px; border:1px solid var(--line);}
+  .p-media .gif-crop img{width:142.86%; max-width:none; margin-left:-21.43%; border:none; border-radius:0; box-shadow:none;}
+  .p-media img, .p-media picture{
+    border-radius:6px;
+    border:1px solid var(--line);
+    box-shadow:0 1px 2px rgba(16,24,31,0.04);
+  }
+  .p-text h3{font-size:1.55rem; line-height:1.2;}
+  .p-text p{color:var(--ink-soft); margin-top:14px; font-size:0.98rem;}
+  .p-media .tags{margin-top:16px;}
+  .related-pubs{margin-top:22px; padding-top:16px; border-top:1px solid var(--line);}
+  .related-pubs h4{font-family:'IBM Plex Mono', monospace; font-size:0.72rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--ink-soft); font-weight:500; margin:0 0 10px;}
+  .related-pubs ul{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px;}
+  .related-pubs li{font-size:0.9rem; line-height:1.45;}
+  .rp-title{display:block; color:var(--ink);}
+  .rp-venue{display:block; color:var(--ink-soft); font-style:italic; font-size:0.84rem; margin-top:2px;}
+  .p-text .tags{margin-top:18px;}
+  .p-text .tag{background:var(--paper-alt);}
+
+  /* EXPERIENCE */
+  .timeline{display:flex; flex-direction:column;}
+  .t-row{
+    display:grid;
+    grid-template-columns:170px 1fr;
+    gap:28px;
+    padding:22px 0;
+    border-top:1px solid var(--line);
+  }
+  .t-row:first-child{border-top:none;}
+  .t-date{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.78rem; color:var(--navy); padding-top:3px;
+  }
+  .t-role{font-weight:600; font-size:1.02rem;}
+  .t-org{color:var(--ink-soft); font-size:0.92rem; margin-top:2px;}
+  .t-desc{color:var(--ink-soft); font-size:0.92rem; margin-top:8px; max-width:620px;}
+
+  /* two-col simple lists (education / grants) */
+  .cols2{display:grid; grid-template-columns:1fr 1fr; gap:52px;}
+  .simple-item{padding:16px 0; border-top:1px solid var(--line);}
+  .simple-item:first-child{border-top:none;}
+  .simple-item .t-date{display:block; margin-bottom:4px;}
+
+  /* RESEARCH INTERESTS + SKILLS */
+  .ri-row{display:grid; grid-template-columns:1fr 1fr; gap:52px; align-items:center; padding:4px 0;}
+  .ri-row .tags{margin-top:0; gap:7px;}
+  .ri-row .tag{padding:4px 11px;}
+  .ri-head{padding:0; align-items:start;}
+  .ri-head .section-head{margin-bottom:10px;}
+  .ri-head h2{margin-top:6px;}
+
+  /* MENTORING */
+  .mentee-grid{list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(3, 1fr); column-gap:40px;}
+  .mentee-grid li{padding:12px 0; border-top:1px solid var(--line);}
+  .m-name{display:block; font-size:0.98rem; color:var(--ink);}
+  .m-name a{text-decoration:none; border-bottom:1px solid var(--line);}
+  .m-name a:hover{color:var(--navy); border-bottom-color:currentColor;}
+  .m-role{display:block; font-size:0.84rem; color:var(--ink-soft); margin-top:2px;}
+
+  /* CONTACT / FOOTER */
+  footer{padding:48px 0 32px;}
+  .contact-grid{display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:28px;}
+  footer h2{font-size:2rem; max-width:520px;}
+  .contact-links{display:flex; flex-direction:column; gap:8px; font-size:0.98rem;}
+  .contact-links a{text-decoration:none; border-bottom:1px solid var(--line);}
+  .foot-bottom{
+    margin-top:56px; padding-top:20px; border-top:1px solid var(--line);
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;
+    font-family:'IBM Plex Mono', monospace; font-size:0.72rem; color:var(--ink-soft);
+  }
+
+  @media (max-width: 860px){
+    .cols2{grid-template-columns:1fr; gap:28px;}
+    .mentee-grid{grid-template-columns:1fr 1fr; column-gap:20px;}
+    .project, .project.reverse{grid-template-columns:1fr;}
+    .project .p-media, .project.reverse .p-media{order:1;}
+    .project .p-text, .project.reverse .p-text{order:2;}
+    nav.links{
+      position:fixed; top:64px; left:0; right:0; bottom:0;
+      background:#fff; flex:none; flex-direction:column; align-items:flex-start; justify-content:flex-start;
+      padding:28px 32px; gap:20px; display:none; height:auto; z-index:60;
+      border-top:1px solid var(--line); overflow-y:auto;
+    }
+    nav.links.open{display:flex;}
+    .menu-toggle{display:block;}
+    .cv-btn{display:none;}
+    .mobile-cv{display:inline-block; margin-top:4px;}
+    .profile{flex-direction:column; align-items:flex-start; gap:16px;}
+    .headshot{width:96px; height:96px;}
+    .ri-row{gap:20px;}
+    .ri-head h2{font-size:1.4rem; line-height:1.15;}
+    .t-row{grid-template-columns:1fr;}
+    .t-date{padding-top:0;}
+    footer h2{font-size:1.6rem;}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="brand">ANU&nbsp;TRIPATHI</div>
+    <nav class="links" id="navLinks">
+      <a href="#top">About</a>
+      <a href="#projects">Research</a>
+      <a href="#teaching">Teaching</a>
+      <a href="#mentoring">Mentoring</a>
+	  <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+      <a class="btn solid mobile-cv" href="assets/Anu_Tripathi_CV.pdf" download>Download CV</a>
+    </nav>
+    <div class="nav-right">
+      <a class="btn solid cv-btn" href="assets/Anu_Tripathi_CV.pdf" download>Download CV</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="profile">
+      <img class="headshot" src="assets/headshot.jpg" alt="Portrait of Anu Tripathi" width="112" height="112">
+      <div>
+        <h1 class="profile-name">Anu Tripathi, Ph.D.</h1>
+        <div class="eyebrow">Postdoctoral Researcher, Robert Morris University · <a href="https://www.panther.engr.wisc.edu/" target="_blank" rel="noopener">PANTHER</a> · <a href="https://youthheadimpacts.research.wisc.edu/research-team/" target="_blank" rel="noopener">Youth Head Impact and Concussion Research</a></div>
+      </div>
+    </div>
+    <div class="bio">
+      <p>I am a computational biomechanics researcher. My work sits at the intersection of human motion sensing, medical image-based digital twins, and damage modeling of soft materials, and spans across spatial scales—from whole-body digital twins to micro-resolution models of a single optic nerve.</p>
+      <p>I develop finite element models from medical images, with subject-specific anatomy and material properties, for injury risk assessment under extreme loading conditions. My doctoral research on stress corrosion cracking in polymers provided a strong mathematical foundation in morphology-based constitutive modeling and coupled-physics simulation.</p>
+	  <p>Complementing my computational work, I measure human motion using wearable sensors and novel data processing algorithms, both in laboratory and field. Recently, our team is developing an AI-driven workflow for classifying head impacts in youth soccer. Together, these computational and experimental approaches support my broader goal of developing increasingly biofidelic, sensor-informed human digital twins for injury prediction.</p>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="ri-grid">
+      <div class="ri-row ri-head">
+        <div class="section-head">
+          <h2>Research Interests</h2>
+        </div>
+        <div class="section-head">
+          <h2>Technical Skills</h2>
+        </div>
+      </div>
+      <div class="ri-row">
+        <div class="tags"><span class="tag">Finite element modeling</span><span class="tag">Injury biomechanics</span></div>
+        <div class="tags"><span class="tag">Abaqus (10+ yrs)</span><span class="tag">LS-DYNA</span></div>
+      </div>
+      <div class="ri-row">
+        <div class="tags"><span class="tag">Medical image based digital twins</span></div>
+        <div class="tags"><span class="tag">FreeSurfer</span><span class="tag">3D Slicer</span><span class="tag">ANTs</span></div>
+      </div>
+      <div class="ri-row">
+        <div class="tags"><span class="tag">Wearable Sensors</span><span class="tag">Signal Processing</span></div>
+        <div class="tags"><span class="tag">Mathematica (CWT)</span><span class="tag">MATLAB</span></div>
+      </div>
+      <div class="ri-row">
+        <div class="tags"><span class="tag">Damage Mechanics</span></div>
+        <div class="tags"><span class="tag">Abaqus VUMAT/UMAT/HETVAL</span></div>
+      </div>
+      <div class="ri-row">
+        <div class="tags"><span class="tag">Data driven computational modeling</span></div>
+        <div class="tags"><span class="tag">Python</span><span class="tag">MATLAB</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="alt">
+    <div class="section-head">
+      <h2>Recent Projects</h2>
+    </div>
+
+    <div class="project">
+      <div class="p-media"><img src="assets/cortical-workflow.jpg" alt="Workflow: structural MRI and DTI are segmented and meshed into gyrencephalic (folded) and lissencephalic (smooth) brain models, loaded with head rotations in axial, coronal and sagittal directions, and compared using MPS, MPSR and CSDM15 injury metrics" loading="lazy">
+        <div class="tags">
+          <span class="tag">FE Modeling</span>
+          <span class="tag">Medical Image Processing</span>
+          <span class="tag">Brain Injury</span>
+        </div>
+      </div>
+      <div class="p-text">
+        <h3>Finite Element Head Digital Twins</h3>
+        <p>Built subject-specific finite element head models — with folds (gyrencephalic) and without (lissencephalic) — from structural MRI of 18 youth subjects, to test whether smoothing out the brain's folded anatomy changes predicted injury metrics under rotational head accelerations. Modeling these anatomical details significantly shifted peak strain values and where strain concentrated by changing the skull–brain interface.</p>
+        <div class="related-pubs">
+          <h4>Related publications</h4>
+          <ul>
+            <li><span class="rp-title">Effect of individual differences in cortical folds on brain deformation from head accelerations: A computational study</span><span class="rp-venue">Biomechanics and Modeling in Mechanobiology, 2026</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="p-media"><img src="assets/headband2.jpg" alt="Instrumented headband device with embedded IMU sensors, signal filtering scalogram, and validation against reference sensors" loading="lazy">
+        <div class="tags">
+          <span class="tag">Wearable Sensors</span>
+          <span class="tag">Signal Processing</span>
+          <span class="tag">Field Validation</span>
+        </div>
+      </div>
+      <div class="p-text">
+        <h3>Instrumented headband for head kinematics</h3>
+        <p>Developed a wearable headband with commercially available sensors and an adaptive, wavelet-based filtering method to recover accurate head kinematics during soccer headers. Validated in the lab against reference sensors on an instrumented headform, then field-tested on a human subject.</p>
+        <div class="related-pubs">
+          <h4>Related publications</h4>
+          <ul>
+            <li><span class="rp-title">Field evaluation of a wearable instrumented headband designed for measuring head kinematics</span><span class="rp-venue">Annals of Biomedical Engineering, 2026</span></li>
+            <li><span class="rp-title">Laboratory evaluation of a wearable instrumented headband for rotational head kinematics measurement</span><span class="rp-venue">Annals of Biomedical Engineering, 2025</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="p-media"><img src="assets/soccer-review.jpg" alt="Peak angular velocity of soccer headers reported across published studies, grouped by impact location (frontal, oblique, top), sex and age group, and sensor type" loading="lazy">
+        <div class="tags">
+          <span class="tag">Quantitative review</span>
+          <span class="tag">Data driven biomechanics</span>
+          <span class="tag">mTBI in Soccer</span>
+        </div>
+      </div>
+      <div class="p-text">
+        <h3>Review and Quantitative Analysis of Published Head Kinematics in Soccer</h3>
+        <p>Numerous studies have estimated head kinematics and brain deformation in soccer to identify mTBI risk conditions. However, heterogeneity in study design, data collection, and analysis has produced inconsistent findings, and injury risk is infrequently reported. We conducted a quantitative analysis of the existing literature to identify knowledge gaps and specific trends. The review underscores the need for standardized reporting of kinematics and brain deformation to enable mTBI risk estimation and meaningful cross-study comparisons.</p>
+        <div class="related-pubs">
+          <h4>Related publications</h4>
+          <ul>
+            <li><span class="rp-title">Head Kinematics and Brain Tissue Deformation from Soccer Heading: A Review of Implications for Brain Injury Risk</span><span class="rp-venue">arXiv preprint, 2026</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="p-media"><img src="assets/opticnerve3.jpg" alt="Experimental MRI tension device and finite element model of porcine optic nerve, showing stress concentration in connective tissue" loading="lazy">
+        <div class="tags">
+          <span class="tag">Microscale FE Modeling</span>
+          <span class="tag">Experimental Design</span>
+        </div>
+      </div>
+      <div class="p-text">
+        <h3>High resolution optic nerve modeling</h3>
+        <p>Developed high resolution model of optic nerve using MRI images under under tensile loading, using a 3D-printed, MRI-compatible tension device to reveal stress concentrations at the sub-tissue level.</p>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="p-media">
+        <div class="media-pair">
+          <img src="assets/pandit.jpg" alt="PANTHER subject-specific head model adapted and combined into the I-PREDICT whole-body model" loading="lazy">
+          <div class="gif-crop"><img src="assets/morphing.gif" alt="Animated finite element mesh morphing sequence integrating a head model into a whole-body model" loading="lazy"></div>
+        </div>
+        <div class="tags">
+          <span class="tag">Mesh Morphing</span>
+          <span class="tag">Digital Twin</span>
+        </div>
+      </div>
+      <div class="p-text">
+        <h3>A whole-body human digital twin</h3>
+        <p>Developed a novel finite element mesh-morphing workflow — animated at left — to seamlessly graft a subject-specific head model into the skull of a whole-body model, creating an integrated digital twin for injury-risk prediction under military-relevant loading. The morphing pipeline preserves anatomical detail while producing a mesh compatible across both models.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- TEACHING -->
+  <section id="teaching">
+    <div class="section-head">
+      <h2>Teaching</h2>
+    </div>
+    <div class="project">
+      <div class="p-media"><img src="assets/teaching2.jpg" alt="Vein finder device prototype built by undergraduate students, showing CAD case design, circuit layout, and final wearable device" loading="lazy">
+        <div class="tags">
+          <span class="tag">Project-base learning</span>
+          <span class="tag">Device prototyping</span>
+        </div>
+      </div>
+      <div class="p-text">
+        <h3>Project-based teaching: a vein-finder device</h3>
+        <p>As instructor for Introduction to Biomedical Engineering at Robert Morris University, guided undergraduates through a full hardware design cycle — 3D-printed enclosure, circuit design, and camera setup — to build a working near-infrared vein-finder device, from prototype sketches to a final wearable unit.</p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="section-head">
+      <h2>Work Experience</h2>
+    </div>
+    <div class="timeline">
+      <div class="t-row">
+        <div class="t-date">2021 — Present</div>
+        <div>
+          <div class="t-role">Postdoctoral Researcher</div>
+          <div class="t-org">Robert Morris University, University of Wisconsin–Madison</div>
+          <div class="t-org"><a href="https://www.panther.engr.wisc.edu/" target="_blank" rel="noopener">PANTHER</a> · <a href="https://youthheadimpacts.research.wisc.edu/research-team/" target="_blank" rel="noopener">Youth IMpact Concussion Research</a></div>
+          <div class="t-org">Advisors: Prof. Rika Carlsen, Prof. Christian Franck</div>
+          <div class="t-desc">mTBI risk prediction using subject-specific FE modeling of the human head, wearable headband development, and the whole-body digital twin</div>
+        </div>
+      </div>
+      <div class="t-row">
+        <div class="t-date">2015 — 2020</div>
+        <div>
+          <div class="t-role">Graduate Research Assistant</div>
+          <div class="t-org">University of Minnesota–Twin Cities</div>
+          <div class="t-desc">Chemo-mechanical modeling of stress corrosion cracking in semi-crystalline polymers. Advisors: Prof. Jia-Liang Le, Prof. Susan Mantell.</div>
+        </div>
+      </div>
+      <div class="t-row">
+        <div class="t-date">2014 — 2015</div>
+        <div>
+          <div class="t-role">Graduate Research Assistant</div>
+          <div class="t-org">IIT Kanpur, India</div>
+          <div class="t-desc">Seismic vulnerability assessment of stone masonry monasteries in the Sikkim Himalayas. Advisor: Prof. Durgesh C. Rai.</div>
+        </div>
+      </div>
+      <div class="t-row">
+        <div class="t-date">2013</div>
+        <div>
+          <div class="t-role">Research Assistant</div>
+          <div class="t-org">TU Kaiserslautern, Germany</div>
+          <div class="t-desc">Design of fiber-reinforced polymers as reinforcement and connectors in sandwich panels. Advisor: Jun. Prof. Dipl. Ing. Matthias Pahn.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENTORING -->
+  <section id="mentoring" class="alt">
+    <div class="section-head">
+      <div class="eyebrow">Mentoring</div>
+      <h2>Undergraduate Mentoring at RMU</h2>
+    </div>
+    <ul class="mentee-grid">
+      <li><span class="m-name"><a href="https://www.linkedin.com/in/julianna-winkowski/" target="_blank" rel="noopener">Julianna Winkowski</a></span><span class="m-role">Biomedical/Medical, Mechatronics, Electrical</span></li>
+      <li><span class="m-name"><a href="https://www.linkedin.com/in/thandi-pfuma-0b70b6235/" target="_blank" rel="noopener">Thandi Pfuma</a></span></li>
+      <li><span class="m-name"><a href="https://www.linkedin.com/in/moody-juan-541113247/" target="_blank" rel="noopener">Brenda Juan</a></span></li>
+      <li><span class="m-name"><a href="https://www.linkedin.com/in/logan-byers/" target="_blank" rel="noopener">Logan Byers</a></span><span class="m-role">Manufacturing Quality Engineer at Sun Nuclear</span></li>
+      <li><span class="m-name"><a href="https://www.linkedin.com/in/victoria-kutzmonich-7a57b9224/" target="_blank" rel="noopener">Victoria Kutzmonich</a></span><span class="m-role">GDP-Integrated Supply Chain at Philips HPM</span></li>
+      <li><span class="m-name">Jordan Myers</span></li>
+      <li><span class="m-name"><a href="https://www.linkedin.com/in/isabellaroebuck/" target="_blank" rel="noopener">Isabella Roebuck</a></span><span class="m-role">RMU Engineering Student</span></li>
+      <li><span class="m-name">Jazmin Ingram</span></li>
+      <li><span class="m-name">Christofer Lewis</span><span class="m-role">RMU Engineering Student</span></li>
+      <li><span class="m-name"><a href="https://www.linkedin.com/in/jack-jones-bbb57128b/" target="_blank" rel="noopener">Jack Jones</a></span><span class="m-role">Clinical Engineer at Trimedx</span></li>
+      <li><span class="m-name">Alexis Jones</span></li>
+      <li><span class="m-name">Alex Franks</span><span class="m-role">RMU Engineering Student</span></li>
+      <li><span class="m-name">Alexis Hammond</span></li>
+      <li><span class="m-name"><a href="https://www.linkedin.com/in/riley-langenfeld-797a682aa/" target="_blank" rel="noopener">Riley Langenfeld</a></span><span class="m-role">RMU Biology Student</span></li>
+      <li><span class="m-name"><a href="https://www.linkedin.com/in/sofia-mianzo/" target="_blank" rel="noopener">Sofia Mianzo</a></span><span class="m-role">Biomedical Engineering Student-Athlete at The University of Rochester</span></li>
+      <li><span class="m-name"><a href="https://www.linkedin.com/in/erin-secilia-64188634b/" target="_blank" rel="noopener">Erin Secilia</a></span><span class="m-role">RMU Engineering Student</span></li>
+    </ul>
+  </section>
+
+
+  <!-- EDUCATION + GRANTS -->
+  <section id="education" class="alt">
+    <div class="cols2">
+      <div>
+        <div class="section-head">
+          <div class="eyebrow">Education</div>
+          <h2>Degrees</h2>
+        </div>
+        <div class="simple-item">
+          <span class="t-date">2015 — 2020</span>
+          <div class="t-role">Ph.D., Civil Engineering</div>
+          <div class="t-org">University of Minnesota–Twin Cities</div>
+        </div>
+        <div class="simple-item">
+          <span class="t-date">2010 — 2015</span>
+          <div class="t-role">B.Tech.–M.Tech., Civil Engineering</div>
+          <div class="t-org">Indian Institute of Technology Kanpur</div>
+        </div>
+      </div>
+      <div>
+        <div class="section-head">
+          <div class="eyebrow">Funded Research</div>
+          <h2>Grants &amp; Awards</h2>
+        </div>
+        <div class="simple-item">
+          <span class="t-date">2024 — 2025 · Funded</span>
+          <div class="t-role">Office of Naval Research</div>
+          <div class="t-org">Human digital twins for injury risk prediction under military-relevant loading — Co-Investigator</div>
+        </div>
+        <div class="simple-item">
+          <span class="t-date">2026 · Submitted</span>
+          <div class="t-role">Office of Naval Research</div>
+          <div class="t-org">Human digital twins for injury risk prediction under prolonged repetitive loading — Principal Investigator</div>
+        </div>
+        <div class="simple-item">
+          <span class="t-date">2015 — 2016</span>
+          <div class="t-role">Sommerfeld Fellowship</div>
+          <div class="t-org">University of Minnesota–Twin Cities</div>
+        </div>
+        <div class="simple-item">
+          <span class="t-date">2013</span>
+          <div class="t-role">WISE Internship</div>
+          <div class="t-org">DAAD, Germany</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- CONTACT -->
+  <footer id="contact">
+    <div class="grad-rule" style="margin-bottom:40px;"></div>
+    <div class="contact-grid">
+      <h2>Building a model, a device, or a course — let's talk.</h2>
+      <div class="contact-links">
+        <a href="mailto:tripathia@rmu.edu">tripathia@rmu.edu</a>
+		<a href="mailto:tripathi.anu.careers@gmail.com">tripathi.anu.careers@gmail.com</a>
+        <a href="tel:+16128149067">+1 612 814 9067</a>
+        <a href="assets/Anu_Tripathi_CV.pdf" download>Download full CV (PDF)</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>ANU TRIPATHI — COMPUTATIONAL BIOMECHANICS</span>
+      <span>ROBERT MORRIS UNIVERSITY · GREATER PITTSBURGH AREA</span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  const toggle = document.getElementById('menuToggle');
+  const links = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => links.classList.toggle('open'));
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+
+  // Give side-by-side images equal heights so the pair spans the column edge to edge
+  document.querySelectorAll('.media-pair').forEach(pair => {
+    const items = [...pair.children];
+    const fit = () => items.forEach(el => {
+      const img = el.tagName === 'IMG' ? el : el.querySelector('img');
+      if (!img.naturalWidth) return;
+      const visible = el.classList.contains('gif-crop') ? 0.7 : 1;
+      el.style.flexGrow = img.naturalWidth * visible / img.naturalHeight;
+    });
+    items.forEach(el => (el.tagName === 'IMG' ? el : el.querySelector('img')).addEventListener('load', fit));
+    fit();
+  });
+</script>
+
+</body>
+</html>
